@@ -46,11 +46,10 @@ func (q *Queue) Dequeue() (interface{}, error) {
 
     q.Length--
 
-    n := q.head
-    q.head = n.prev
-    n.prev = nil
+    data := q.head.Data
+    q.head = q.head.prev
 
-    return n.Data, nil
+    return data, nil
 }
 
 func (q *Queue) Peek() (interface{}, error) {
