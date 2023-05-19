@@ -8,6 +8,7 @@ type Player struct {
     Hand []Card
     Wallet int
     Bet int
+    Playing bool
 }
 
 func NewPlayer(id int, username string, wallet int) *Player {

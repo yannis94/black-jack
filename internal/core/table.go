@@ -2,7 +2,6 @@ package core
 
 import (
 	"errors"
-
 )
 
 type Table struct {
@@ -17,7 +16,6 @@ func NewTable(id int) *Table {
         Id: id,
         Hoof: BuildHoof(),
         MaxPlayer: 5,
-        Sits: make([]*Player, 5),
     }
 }
 
@@ -41,4 +39,16 @@ func (table *Table) RemovePlayer(id int) Player {
     }
 
     return *removedPlayer
+}
+
+func (table *Table) Play() {
+    /*
+    for len(table.Sits) > 0 {
+        //init new game
+    }
+    */
+    game := NewGame(table.Sits, table.Hoof)
+
+    game.Start()
+    
 }
